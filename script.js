@@ -44,6 +44,71 @@ function playRound(computer, player) {
   return outcome;
 }
 
-console.log(playRound(computerSelection, playerSelection));
+function game() {
+  let computerScore = 0;
+  let playerScore = 0;
+  let round1 = playRound(getComputerChoice(), playerSelection);
+  if (round1.includes("Win")) {
+    playerScore = ++playerScore;
+    console.log(`Player Score is ${playerScore}`);
+  } else if (round1.includes("Lose")) {
+    computerScore = ++computerScore;
+    console.log(`Computer Score is ${computerScore}`);
+  } else {
+    console.log("No points awarded");
+  }
 
-function game() {}
+  let round2 = playRound(getComputerChoice(), playerSelection);
+  if (round2.includes("Win")) {
+    playerScore = ++playerScore;
+    console.log(`Player Score is ${playerScore}`);
+  } else if (round2.includes("Lose")) {
+    computerScore = ++computerScore;
+    console.log(`Computer Score is ${computerScore}`);
+  } else {
+    console.log("No points awarded");
+  }
+
+  let round3 = playRound(getComputerChoice(), playerSelection);
+  if (round2.includes("Win")) {
+    playerScore = ++playerScore;
+    console.log(`Player Score is ${playerScore}`);
+  } else if (round2.includes("Lose")) {
+    computerScore = ++computerScore;
+    console.log(`Computer Score is ${computerScore}`);
+  } else {
+    console.log("No points awarded");
+  }
+
+  let round4 = playRound(getComputerChoice(), playerSelection);
+  if (round4.includes("Win")) {
+    playerScore = ++playerScore;
+    console.log(`Player Score is ${playerScore}`);
+  } else if (round4.includes("Lose")) {
+    computerScore = ++computerScore;
+    console.log(`Computer Score is ${computerScore}`);
+  } else {
+    console.log("No points awarded");
+  }
+
+  let round5 = playRound(getComputerChoice(), playerSelection);
+  if (round5.includes("Win")) {
+    playerScore = ++playerScore;
+    console.log(`Player Score is ${playerScore}`);
+  } else if (round5.includes("Lose")) {
+    computerScore = ++computerScore;
+    console.log(`Computer Score is ${computerScore}`);
+  } else {
+    console.log("No points awarded");
+  }
+
+  if (computerScore > playerScore) {
+    return "You Lose!";
+  } else if (playerScore > computerScore) {
+    return "You Win!";
+  } else {
+    return "It's a Tie!";
+  }
+}
+
+console.log(game());
