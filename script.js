@@ -13,16 +13,29 @@ function getComputerChoice() {
     : (answer = "Scissors");
   return answer;
 }
-let computerSelection = getComputerChoice();
 
-function capitalize(word) {
-  let first = word.slice(0, 1);
-  let rest = word.slice(1);
-  return first.toUpperCase() + rest.toLowerCase();
-}
+let playerValue = 0;
+let computerValue = 0;
+let resultText = document.querySelector("#resultText");
+let playerScore = document.querySelector("#playerScore");
+let computerScore = document.querySelector("#computerScore");
 
-let playerInput = "RoCK";
-let playerSelection = capitalize(playerInput);
+const btns = document.querySelectorAll("button");
+
+btns.forEach((button) => {
+  button.addEventListener("click", () => {
+    let playerSelection = button.id;
+    console.log(playerSelection);
+    resultText.textContent = playRound(getComputerChoice(), playerSelection);
+    playerScore.textContent = playerValue;
+    computerScore.textContent = computerValue;
+    if (playerValue === 5) {
+      alert("You win best of 5! Refresh to play again");
+    } else if (computerValue === 5) {
+      alert("You lose best of 5! Refresh to play again");
+    }
+  });
+});
 
 function playRound(computer, player) {
   let outcome;
@@ -34,16 +47,19 @@ function playRound(computer, player) {
     (computer == "Scissors" && player == "Paper")
   ) {
     outcome = `You Lose! ${computer} beats ${player}`;
+    ++computerValue;
   } else if (
     (computer == "Rock" && player == "Paper") ||
     (computer == "Paper" && player == "Scissors") ||
     (computer == "Scissors" && player == "Rock")
   ) {
     outcome = `You Win! ${player} beats ${computer}`;
+    ++playerValue;
   }
   return outcome;
 }
 
+/* Play best of 5 game to console function
 function game() {
   let computerScore = 0;
   let playerScore = 0;
@@ -110,5 +126,4 @@ function game() {
     return "It's a Tie!";
   }
 }
-
-console.log(game());
+*/

@@ -5,7 +5,42 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <link rel="stylesheet" href="style.css" />
-    <script src="script.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Kanit"
+    />
+    <script src="script.js" defer></script>
   </head>
-  <body></body>
+  <body>
+    <div class="header">
+      <span class="h1">Let's Play</span>
+      <span class="h2">Rock, Paper, Scissors</span>
+      <br />
+    </div>
+    <div class="scores">
+      <div class="scoreCard">
+        <div>
+          <span class="cardHeader">Player:</span>
+          <br />
+          <span class="score" id="playerScore">0</span>
+        </div>
+      </div>
+      <div class="scoreCard">
+        <div>
+          <span class="cardHeader">Computer:</span>
+          <br />
+          <span class="score" id="computerScore">0</span>
+        </div>
+      </div>
+    </div>
+    <div id="result">
+      <span id="resultText"></span>
+    </div>
+
+    <div class="buttons">
+      <button id="Rock">✊</button>
+      <button id="Paper">✋</button>
+      <button id="Scissors">✌️</button>
+    </div>
+  </body>
 </html>
